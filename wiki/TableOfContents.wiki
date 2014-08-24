@@ -1,6 +1,6 @@
 #labels Featured
 ----
-= Rutorrent Webui =
+=Project has moved to [https://github.com/Novik/ruTorrent Github]=
 ----
   * [Main Description]
     * [Versions]
