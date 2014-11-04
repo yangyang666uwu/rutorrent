@@ -1,6 +1,6 @@
 <?php
 
-	// interval for schedule command of garbage checker in seconds
-	$garbageCheckInterval = 15;
+// Interval for scheduled garbage checker.
+$garbageCheckInterval = 15; // (in seconds)
 
-	$erasedebug_enabled = false;
+$erasedebug_enabled = false;

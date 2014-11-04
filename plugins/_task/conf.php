@@ -1,5 +1,8 @@
 <?php
-	// configuration parameters
 
-	$maxConcurentTasks 	= 3;	
-	$showTabAlways		= 1;	// if 1 then show tab 'Tasks' on the start always. If 0 - then only if background tasks exists
+// Maximum concurrent tasks.
+$maxConcurentTasks = 3;
+
+// Set to 1 to always show 'Tasks' tab.
+// Set to 0 to show 'Tasks' tab only if background tasks exist.
+$showTabAlways = 1;

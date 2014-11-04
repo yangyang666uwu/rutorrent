@@ -1,5 +1,9 @@
 <?php
 
 $maxfiles = 25;
-$maxfilesize = 2; 	// in MB
-$queuefiles = 2;	// how many in parallel mode
+
+// Maximum file size.
+$maxfilesize = 2; // (in Mb)
+
+// Number of files to be processed in parallel.
+$queuefiles = 2;

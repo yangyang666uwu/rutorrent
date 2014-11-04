@@ -1,3 +1,5 @@
 <?php
 
-$pathToExternals['mediainfo'] = '';		// Something like /usr/bin/mediainfo. If empty, will be found in PATH.
+// Path to mediainfo binary (e.g. /usr/bin/mediainfo).
+// Set to '' to search in $PATH.
+$pathToExternals['mediainfo'] = '';

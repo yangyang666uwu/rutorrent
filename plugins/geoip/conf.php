@@ -1,11 +1,12 @@
 <?php
-	// configuration parameters
 
-	$retrieveCountry = true;
-	$retrieveHost = true;
-	$retrieveComments = true;
+$retrieveCountry = true;
 
-	// For retrieve hosts
+$retrieveHost = true;
 
-	$dnsResolver = '8.8.8.8';	// use gethostbyaddr, if null
-	$dnsResolverTimeout = 1;	// timeout in seconds
+$retrieveComments = true;
+
+// Set to 'null' to use gethostbyaddr.
+$dnsResolver = '8.8.8.8';
+
+$dnsResolverTimeout = 1; // (in seconds)

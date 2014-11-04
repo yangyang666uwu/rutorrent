@@ -1,9 +1,17 @@
 <?php
 
 @define('USE_UNZIP', true, true);
+
 @define('USE_UNRAR', true, true);
 
-$pathToExternals['unzip'] = '';		// Something like /usr/bin/unzip. If empty, will be found in PATH.
-$pathToExternals['unrar'] = '';		// Something like /usr/bin/unrar. If empty, will be found in PATH.
+// Path to unzip binary (e.g. /usr/bin/unzip).
+// Set to '' to search in $PATH.
+$pathToExternals['unzip'] = '';
 
-$cleanupAutoTasks = false;		// Remove autounpack tasks parameters after finish, otherwise will be shown in the 'Tasks' tab
+// Path to unrar binary (e.g. /usr/bin/unrar).
+// Set to '' to search in $PATH.
+$pathToExternals['unrar'] = '';
+
+// Set to true to remove autounpack task parameters after
+// finish, otherwise it will be shown in the 'Tasks' tab.
+$cleanupAutoTasks = false;

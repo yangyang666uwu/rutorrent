@@ -1,13 +1,16 @@
 <?php
-	// configuration parameters
 
-	$useExternal = false;			// Valid choices:
-						// false - use internal realization (may be too slow for large files)
-						// "transmissioncli" - use program transmissioncli (see http://www.transmissionbt.com/)
-						// "transmissioncreate" - use program transmissioncreate (see http://www.transmissionbt.com/)
-						// "createtorrent" - use program createtorrent (see http://www.createtorrent.com)
-						// "mktorrent" - use program createtorrent (see http://mktorrent.sourceforge.net)
-						// "buildtorrent" - use program buildtorrent (see http://claudiusmaximus.goto10.org/cm/torrent.html)
-	$pathToCreatetorrent = '';		// Something like /bin/createtorrent, or /bin/transmissioncli. If empty, program will be found in PATH.
+// Valid choices:
+// false - use internal (may be too slow for large files)
+// "transmissioncli" - use 'transmissioncli' (see http://www.transmissionbt.com/)
+// "transmissioncreate" - use 'transmissioncreate' (see http://www.transmissionbt.com/)
+// "createtorrent" - use 'createtorrent' (see http://www.createtorrent.com)
+// "mktorrent" - use 'mktorrent' (see http://mktorrent.sourceforge.net)
+// "buildtorrent" - use 'buildtorrent' (see http://claudiusmaximus.goto10.org/cm/torrent.html)
+$useExternal = false;
 
-	$recentTrackersMaxCount 	= 15;	
+// Path to external program (e.g. /bin/createtorrent).
+// Set to '' to search in $PATH.
+$pathToCreatetorrent = '';
+
+$recentTrackersMaxCount = 15;
