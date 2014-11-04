@@ -1,3 +1,5 @@
 <?php
 
-$processorsCount = null; // Count of processors. If null - autodetect (linux only)
+// Number of CPUs. Set to null to autodetect (Linux only).
+$processorsCount = null;
+

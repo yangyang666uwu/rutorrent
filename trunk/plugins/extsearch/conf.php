@@ -1,4 +1,6 @@
 <?php
 
-$searchHistoryMaxCount 	= 256;	// max count of entries in download history
-$HTTPTimeoutPerSite	= 5;	// in sec
+// Maximum number of entries in download history.
+$searchHistoryMaxCount = 256;
+
+$HTTPTimeoutPerSite = 5; // (in seconds)

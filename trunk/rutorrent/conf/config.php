@@ -1,60 +1,90 @@
 <?php
-	// configuration parameters
 
-	// for snoopy client
-	@define('HTTP_USER_AGENT', 'Mozilla/5.0 (Windows NT 6.0; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0', true);
-	@define('HTTP_TIME_OUT', 30, true);	// in seconds
-	@define('HTTP_USE_GZIP', true, true);
-	$httpIP = null;				// IP string. Or null for any.
+// For snoopy client.
+@define('HTTP_USER_AGENT', 'Mozilla/5.0 (Windows NT 6.0; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0', true);
 
-	@define('RPC_TIME_OUT', 5, true);	// in seconds
+@define('HTTP_TIME_OUT', 30, true); // (in seconds)
 
-	@define('LOG_RPC_CALLS', false, true);
-	@define('LOG_RPC_FAULTS', true, true);
+@define('HTTP_USE_GZIP', true, true);
 
-	// for php	
-	@define('PHP_USE_GZIP', false, true);
-	@define('PHP_GZIP_LEVEL', 2, true);
+// IP string. Set to null for any.
+$httpIP = null;
 
-	$schedule_rand = 10;			// rand for schedulers start, +0..X seconds
+@define('RPC_TIME_OUT', 5, true); // (in seconds)
 
-	$do_diagnostic = true;
-	$log_file = '/tmp/errors.log';		// path to log file (comment or leave blank to disable logging)
+@define('LOG_RPC_CALLS', false, true);
 
-	$saveUploadedTorrents = true;		// Save uploaded torrents to profile/torrents directory or not
-	$overwriteUploadedTorrents = false;     // Overwrite existing uploaded torrents in profile/torrents directory or make unique name
+@define('LOG_RPC_FAULTS', true, true);
 
-	$topDirectory = '/';			// Upper available directory. Absolute path with trail slash.
-	$forbidUserSettings = false;
+// For php.
+// Enables or disables use of the external gzip binary. Can't be used if php
+// is already being compressed (for example, if zlib.output_compression is on).
+@define('PHP_USE_GZIP', false, true);
 
-	$scgi_port = 5000;
-	$scgi_host = "127.0.0.1";
+// Compression level of the above 'gzip' option.
+@define('PHP_GZIP_LEVEL', 2, true);
 
-	// For web->rtorrent link through unix domain socket 
-	// (scgi_local in rtorrent conf file), change variables 
-	// above to something like this:
-	//
-	// $scgi_port = 0;
-	// $scgi_host = "unix:///tmp/rpc.socket";
+// Rand for scheduler start, +0..X seconds.
+$schedule_rand = 10;
 
-	$XMLRPCMountPoint = "/RPC2";		// DO NOT DELETE THIS LINE!!! DO NOT COMMENT THIS LINE!!!
+// Set to false to skip some diagnostics, for example, permission checking.
+$do_diagnostic = true;
 
-	$pathToExternals = array(
-		"php" 	=> '',			// Something like /usr/bin/php. If empty, will be found in PATH.
-		"curl"	=> '',			// Something like /usr/bin/curl. If empty, will be found in PATH.
-		"gzip"	=> '',			// Something like /usr/bin/gzip. If empty, will be found in PATH.
-		"id"	=> '',			// Something like /usr/bin/id. If empty, will be found in PATH.
-		"stat"	=> '',			// Something like /usr/bin/stat. If empty, will be found in PATH.
-	);
+// Path to log file. Set to '' to disable logging.
+$log_file = '/tmp/errors.log';
 
-	$localhosts = array( 			// list of local interfaces
-		"127.0.0.1", 
-		"localhost",
-	);
+// If set to true, all .torrent files added via webui will be saved in share/torrents
+// (or share/users/USERNAME/torrents) directory. If set to false, all .torrent files
+// will be deleted after being added.
+$saveUploadedTorrents = true;
 
-	$profilePath = '../share';		// Path to user profiles
-	$profileMask = 0777;			// Mask for files and directory creation in user profiles.
-						// Both Webserver and rtorrent users must have read-write access to it.
-						// For example, if Webserver and rtorrent users are in the same group then the value may be 0770.
+// Set to true to overwrite existing .torrent files in share/torrents
+// (or share/users/USERNAME/torrents) directory, set to false to use unique names.
+// This setting has no meaning if '$saveUploadedTorrents' is set to false.
+$overwriteUploadedTorrents = false;
 
-	$tempDirectory = null;			// Temp directory. Absolute path with trail slash. If null, then autodetect will be used.
+// Absolute path (with trailing slash!) to top available directory.
+$topDirectory = '/';
+
+// Set to true to enable single user style configuration (even with webauth).
+$forbidUserSettings = false;
+
+// '$scgi_port' and '$scgi_host' must match 'scgi_port' setting in rTorrent
+// configuration file.
+$scgi_port = 5000;
+$scgi_host = "127.0.0.1";
+
+// For webserver->rTorrent connection via unix domain socket, change '$scgi_port'
+// and '$scgi_host' variables to something like this ('$scgi_host' must match
+// 'scgi_local' setting in rTorrent configuration file):
+//$scgi_port = 0;
+//$scgi_host = "unix:///tmp/rpc.socket";
+
+// DO NOT DELETE THIS LINE!!! DO NOT COMMENT THIS LINE!!!
+$XMLRPCMountPoint = "/RPC2";
+
+// Path to external binaries (e.g. /usr/bin/php). Set to '' to search in $PATH.
+$pathToExternals = array(
+    "php"	=> '',
+    "curl"	=> '',
+    "gzip"	=> '',
+    "id"	=> '',
+    "stat"	=> '',
+);
+
+// List of local interfaces.
+$localhosts = array(
+    "127.0.0.1",
+    "localhost",
+);
+
+// Path to user profiles.
+$profilePath = '../share';
+
+// Permission mask for files and directories in user profiles. Both webserver user
+// and rtorrent user must have read-write access. For example, if webserver user
+// and rtorrent user are in the same group, the value may be 0770.
+$profileMask = 0777;
+
+// Absolute path (with trailing slash!) to temporary directory. Set to null to autodetect.
+$tempDirectory = null;
